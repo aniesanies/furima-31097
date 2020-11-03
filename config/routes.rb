@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'furima/index'
-  root to: "furima#index"
+  get 'items/index'
+  root to: "items#index"
 end
