@@ -18,7 +18,7 @@
         <%= "¥ #{@item.price}" %>
       </span>
       <span class="item-postage">
-        (税込) 送料込み
+        <%= @item.delivery_pay.name %>
       </span>
     </div>
     <% if @item.order == nil %>
