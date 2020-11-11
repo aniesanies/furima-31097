@@ -21,7 +21,7 @@
         (税込) 送料込み
       </span>
     </div>
-    <% if Order.find_by(item_id: @item.id) == nil %>
+    <% if @item.order == nil? %>
       <% if user_signed_in? && current_user.id == @item.user.id %>
         <%= link_to '商品の編集', '#' , method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
