@@ -6,13 +6,6 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all.order(created_at: 'DESC').includes(:user)
   end
- 
-  def edit
-    @item = Item.find(params[:id])
-    unless current_user == @item.user
-      redirect_to root_path
-    end
-  end
 
   def show
   end
