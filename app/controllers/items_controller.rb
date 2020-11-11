@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :edit]
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destoroy]
   before_action :move_to_index, only: [:edit]
 
   def index
@@ -28,6 +28,14 @@ class ItemsController < ApplicationController
       redirect_to actin: :index
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to action: :index
+    else
+      render :show
     end
   end
 
