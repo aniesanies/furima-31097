@@ -22,6 +22,8 @@ class Item < ApplicationRecord
   end
 
   def image_presence
-    errors.add(:image, 'ファイルを添付してください') unless image.attached?
+    unless image.attached?
+      errors.add(:image, 'ファイルを添付してください')
+    end
   end
 end
