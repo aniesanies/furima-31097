@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(params_item)
-      redirect_to actin: :index
+      redirect_to action: :index
     else
       render :edit
     end
