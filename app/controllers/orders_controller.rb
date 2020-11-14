@@ -34,4 +34,13 @@ def move_to_index
   elsif Order.find_by(item_id: params[:item_id])
     redirect_to root_path
   end
+
+  def pay_item
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: Item.find(@order_address.item_id).price,
+      card: params_order[:token],
+      currency: 'jpy'
+    )
+  end
 end
