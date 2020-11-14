@@ -16,23 +16,23 @@ class OrdersController < ApplicationController
       render action: :index
     end
   end
-end
 
 private
 
-def params_order
-  params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
-end
+  def params_order
+    params.require(:order_address).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+  end
 
-def set_item
-  @item = Item.find(params[:item_id])
-end
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
-def move_to_index
-  if current_user.id == @item.user.id
-    redirect_to root_path
-  elsif Order.find_by(item_id: params[:item_id])
-    redirect_to root_path
+  def move_to_index
+    if current_user.id == @item.user.id
+      redirect_to root_path
+    elsif Order.find_by(item_id: params[:item_id])
+      redirect_to root_path
+    end
   end
 
   def pay_item
