@@ -9,8 +9,8 @@ RSpec.describe orderAddress, type: :model do
     expect(@order_address).to be_valid
   end
 
-  it 'buildingが存在していないなくても保存できること' do
-    @order_address.building = nil
+  it 'building_nameが存在していないなくても保存できること' do
+    @order_address.building_name = nil
     expect(@order_address).to be_valid
   end
 
@@ -44,8 +44,8 @@ RSpec.describe orderAddress, type: :model do
     expect(@order_address.errors.full_messages).to include("市区町村を入力してください")
   end
 
-  it 'addressが存在していない場合保存できないこと' do
-    @order_address.address = nil
+  it 'house_numberが存在していない場合保存できないこと' do
+    @order_address.house_number = nil
     @order_address.valid?
     expect(@order_address.errors.full_messages).to include("番地を入力してください")
   end
