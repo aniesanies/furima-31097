@@ -29,6 +29,10 @@
   text-align: center;
 }
 
+.item-preview-area {
+  margin-top: 5px;
+}
+
 /* 共通 */
 .indispensable {
   background: #ea352d;
