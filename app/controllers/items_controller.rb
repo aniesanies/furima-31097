@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = Comment.where(item_id: params[:id]).order(created_at: "DESC").limit(10).includes(:user)
   end
 
   def new

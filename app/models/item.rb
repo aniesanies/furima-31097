@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_one :order
+  has_many :comments, dependent: :destroy
 
   validate :image_presence
   with_options presence: true do
