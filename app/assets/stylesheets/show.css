@@ -172,6 +172,7 @@
   font-size: 18px;
   border-radius: 100px;
   margin-bottom: 2vh;
+  cursor: pointer;
 }
 
 .comment-flag {
@@ -205,15 +206,23 @@
   font-size: 23px;
 }
 
-.comments_list {
-  list-style-type: square;
-  padding: 5px 0px 5px 20px;
+.comments-list {
+  width: 40vw;
+  list-style-type: none;
+  padding: 5px 10px 30px 20px;
   text-align: left;
+  word-wrap: break-word;
 }
 
 .comment-user {
   font-size: 15px;
   color: #999;
-  padding-left: 50px;
-  text-align: left;
+}
+
+.comment-content {
+  word-wrap: break-word;
+}
+
+.comment-area {
+  margin: 10px;
 }

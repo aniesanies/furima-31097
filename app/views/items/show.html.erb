@@ -74,28 +74,34 @@
     </div>
   </div>
 
-  <div class="comment-box">
-    <%= form_with(model: [@item, @comment], local: true) do |f| %>
-      <%= f.text_field :content, class: "comment-text" %>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <%= button_tag type: :submit, class: "comment-btn" do %>
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25" %>
-        <span>コメントする<span>
+    <div class="comment-box">
+      <% if user_signed_in? %>
+        <%= form_with(model: [@item, @comment], local: true) do |f| %>
+          <%= f.text_field :content, class: "comment-text", id: "comment-text" %>
+          <p class="comment-warn">
+            相手のことを考え丁寧なコメントを心がけましょう。
+            <br>
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          </p>
+          <%= button_tag type: :submit, class: "comment-btn" do %>
+            <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25" %>
+            <span>コメントする<span>
+          <% end %>
+          <hr>
+        <% end %>
       <% end %>
-    <% end %>
-    <% @comments.each do |comment| %>
-      <li class="comments_list">
-        <%= comment.content %>
-        <span class="comment-user">
-          <%= comment.user.nickname %>
-        </span>
-      </li>
-    <% end %>
-  </div>
+      <%= image_tag 'comment_logo.png', width:"130", height: "20", class: "comment-area"%>
+      <% @comments.each do |comment| %>
+        <li class="comments-list" id="comments-list">
+          <div class="comment-user">
+            <%= comment.user.nickname %>
+          </div>
+          <div class="commnt-content">
+            <%= comment.content %>
+          </div>
+        </li>
+      <% end %>
+    </div>
   <div class="links">
     <a href="#" class="change-item-btn">
       ＜ 前の商品
