@@ -204,3 +204,16 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.comments_list {
+  list-style-type: square;
+  padding: 5px 0px 5px 20px;
+  text-align: left;
+}
+
+.comment-user {
+  font-size: 15px;
+  color: #999;
+  padding-left: 50px;
+  text-align: left;
+}
