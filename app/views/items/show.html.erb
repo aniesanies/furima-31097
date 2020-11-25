@@ -90,8 +90,8 @@
           <hr>
         <% end %>
       <% end %>
-      <%= image_tag 'comment_logo.png', width:"130", height: "20", class: "comment-area"%>
       <% @comments.each do |comment| %>
+      <div id="comments-area">
         <li class="comments-list" id="comments-list">
           <div class="comment-user">
             <%= comment.user.nickname %>
@@ -100,6 +100,7 @@
             <%= comment.content %>
           </div>
         </li>
+      </div>
       <% end %>
     </div>
   <div class="links">

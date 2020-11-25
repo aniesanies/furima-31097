@@ -18,7 +18,7 @@ consumer.subscriptions.create("CommentChannel", {
                       ${data.comment[0].content}
                     </div>
                   </li>`;
-    const message = document.getElementById('comments-list');
+    const message = document.getElementById('comments-area');
     message.insertAdjacentHTML('beforebegin', html);
     document.getElementById('comment-text').value = "";
   }
